@@ -6,7 +6,7 @@ async function main() {
    await prisma.todo.create({
       data: {
          title: "Buy milk",
-         complete: false,
+         completed: false,
       }
    })
 }
