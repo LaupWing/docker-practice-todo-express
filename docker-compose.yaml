@@ -1,0 +1,14 @@
+version: '1.0'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: todo-express
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: production
+    command: ['npm', 'run', 'start']
+    network_mode: host
