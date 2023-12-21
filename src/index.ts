@@ -1,13 +1,13 @@
-// import { PrismaClient } from "@prisma/client"
+import { PrismaClient } from "@prisma/client"
 import type { Application } from "express"
 import express from "express"
 
 const app: Application = express()
-// const prisma = new PrismaClient()
+const prisma = new PrismaClient()
 
 app
    .get("/", async (req, res) => {
-      // const todos = await prisma.todo.findMany()
+      const todos = await prisma.todo.findMany()
       res.json({
          message: "Hello World",
          todos: []
