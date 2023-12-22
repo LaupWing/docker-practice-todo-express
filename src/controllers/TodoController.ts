@@ -38,18 +38,21 @@ export default class TodoController {
    update = async (req: Request, res: Response) => {
       const { id } = req.params
       const { title, completed } = req.body
-
-      const todo = await prisma.todo.update({
-         where: {
-            id: id
-         },
-         data: {
-            title,
-            completed
-         }
-      })
-
-      res.json({ todo })
+      try {
+         const todo = await prisma.todo.update({
+            where: {
+               id: id
+            },
+            data: {
+               title,
+               completed
+            }
+         })
+   
+         res.json({ todo })
+      } catch(e: any) {
+         res.status(500).json({error: e.message})
+      }
    }
    
    all = async (req: Request, res: Response) => {
