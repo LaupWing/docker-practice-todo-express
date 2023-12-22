@@ -10,7 +10,7 @@ app
       const todos = await prisma.todo.findMany()
       res.json({
          message: "Hello World",
-         todos: []
+         todos
       })
    })
    .listen(3000, () => console.log("Server is running on http://localhost:3000"))
