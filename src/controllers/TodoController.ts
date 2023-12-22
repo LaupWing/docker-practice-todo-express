@@ -1,5 +1,7 @@
 import type { Request, Response } from "express"
+import { PrismaClient } from "@prisma/client"
 
+const prisma = new PrismaClient()
 
 export default class TodoController {
    get = async (req: Request, res: Response) => {
@@ -15,6 +17,6 @@ export default class TodoController {
    }
    
    all = async (req: Request, res: Response) => {
-
+      
    }
 }
