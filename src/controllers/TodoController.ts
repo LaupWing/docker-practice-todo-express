@@ -11,7 +11,16 @@ export default class TodoController {
    }
 
    create = async (req: Request, res: Response) => {
+      const { title } = req.body
 
+      const todo = await prisma.todo.create({
+         data: {
+            title,
+            completed: false,
+         }
+      })
+
+      res.json({todo})
    }
 
    update = async (req: Request, res: Response) => {
