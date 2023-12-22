@@ -5,14 +5,18 @@ const prisma = new PrismaClient()
 
 export default class TodoController {
    get = async (req: Request, res: Response) => {
-      const { id } = req.params
-      const todos = await prisma.todo.findFirstOrThrow({
-         where: {
-            id: id
-         }
-      })
-
-      res.json({todos})
+      try {
+         const { id } = req.params
+         const todos = await prisma.todo.findFirstOrThrow({
+            where: {
+               id: id
+            }
+         })
+   
+         res.json({todos})
+      } catch(e: any) {
+         res.status(404).json({error: e.message})
+      }
    }
 
    create = async (req: Request, res: Response) => {
