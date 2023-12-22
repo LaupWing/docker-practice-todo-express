@@ -5,7 +5,9 @@ const prisma = new PrismaClient()
 
 export default class TodoController {
    get = async (req: Request, res: Response) => {
+      const todos = await prisma.todo.findMany()
 
+      res.json({todos})
    }
 
    create = async (req: Request, res: Response) => {
