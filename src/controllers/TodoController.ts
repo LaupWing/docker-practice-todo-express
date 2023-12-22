@@ -15,21 +15,24 @@ export default class TodoController {
    
          res.json({todos})
       } catch(e: any) {
-         res.status(404).json({error: e.message})
+         res.status(500).json({error: e.message})
       }
    }
 
    create = async (req: Request, res: Response) => {
       const { title } = req.body
-
-      const todo = await prisma.todo.create({
-         data: {
-            title,
-            completed: false,
-         }
-      })
-
-      res.json({todo})
+      try {
+         const todo = await prisma.todo.create({
+            data: {
+               title,
+               completed: false,
+            }
+         })
+   
+         res.json({todo})
+      } catch(e: any) {
+         res.status(500).json({error: e.message})
+      }
    }
 
    update = async (req: Request, res: Response) => {
