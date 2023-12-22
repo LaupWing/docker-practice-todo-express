@@ -1,19 +1,20 @@
+import type { Request, Response } from "express"
 
 
 export default class TodoController {
-   get = async () => {
+   get = async (req: Request, res: Response) => {
 
    }
 
-   create = async () => {
+   create = async (req: Request, res: Response) => {
 
    }
 
-   update = async () => {
+   update = async (req: Request, res: Response) => {
 
    }
    
-   all = async () => {
+   all = async (req: Request, res: Response) => {
 
    }
 }
