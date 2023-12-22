@@ -53,6 +53,8 @@ export default class TodoController {
    }
    
    all = async (req: Request, res: Response) => {
-      
+      const todos = await prisma.todo.findMany()
+
+      res.json({ todos })
    }
 }
