@@ -5,7 +5,12 @@ const prisma = new PrismaClient()
 
 export default class TodoController {
    get = async (req: Request, res: Response) => {
-      const todos = await prisma.todo.findMany()
+      const { id } = req.params
+      const todos = await prisma.todo.findFirstOrThrow({
+         where: {
+            id: id
+         }
+      })
 
       res.json({todos})
    }
