@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client"
 import type { Application } from "express"
 import express from "express"
 import Server from "./server"
