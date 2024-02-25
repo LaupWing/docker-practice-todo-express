@@ -6,12 +6,13 @@ import Server from "./server"
 const app: Application = express()
 new Server(app)
 const PORT: number = process.env.PORT ? Number(process.env.PORT) : 8080
-const prisma = new PrismaClient()
 
-app.get("/", async (req, res) => {
-    const todos = await prisma.todo.findMany()
-    res.json({
-        message: "Hello World",
-        todos,
-    })
-}).listen(PORT, () => console.log("Server is running on http://localhost:3000"))
+app.listen(PORT, () =>
+    console.log(`Server is running on http://localhost:${PORT}`)
+).on("error", (err: any) => {
+    if (err.code === "EADDRINUSE") {
+        console.log("Error: address already in use")
+    } else {
+        console.log(err)
+    }
+})
