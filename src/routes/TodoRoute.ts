@@ -1,7 +1,7 @@
 import { Router } from "express"
 import TodoController from "../controllers/TodoController"
 
-export class TodoRoute {
+export class TodoRoutes {
     router = Router()
     controller = new TodoController()
 
@@ -13,4 +13,4 @@ export class TodoRoute {
     }
 }
 
-export default new TodoRoute().router
+export default new TodoRoutes().router
