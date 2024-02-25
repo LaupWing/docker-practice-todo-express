@@ -6,10 +6,10 @@ export class TodoRoutes {
     controller = new TodoController()
 
     constructor() {
-        this.router.get("/all", this.controller.all)
-        this.router.get("/get/:id", this.controller.get)
-        this.router.patch("/get/:id", this.controller.update)
-        this.router.post("/create", this.controller.create)
+        this.router.get("/todos", this.controller.all)
+        this.router.post("/todos", this.controller.create)
+        this.router.get("/todos/:id", this.controller.get)
+        this.router.patch("/todos/:id", this.controller.update)
     }
 }
 
