@@ -3,6 +3,6 @@ import todoRoutes from "./TodoRoutes"
 
 export default class Routes {
     constructor(app: Application) {
-        app.use("/todos", todoRoutes)
+        app.use("/api", todoRoutes)
     }
 }
